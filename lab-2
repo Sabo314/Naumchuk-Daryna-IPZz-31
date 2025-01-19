@@ -1,0 +1,41 @@
+void main() {
+  const valueFrom = -4.0;
+  const valueTo = 5.0;
+  const step = 0.25;
+
+  print("y = (x - 3) / (4 + x)\n");
+
+  var x = valueFrom;
+  double sum = 0.0;
+  double min = double.infinity;
+  double max = double.negativeInfinity;
+  int count = 0;
+
+  while (x < valueTo) {
+    // пропускаємо точку, де знаменник дорівнює нулю
+    if (x == -4.0) {
+      print("x = -4, y = -Infinity");
+      x += step;
+      continue;
+    }
+
+    final y = calc(x);
+    print("x = $x, y = $y");
+    sum += y;
+    if (y < min) min = y;
+    if (y > max) max = y;
+    x += step;
+    count++;
+  }
+
+  final average = sum / count;
+  print("\nРезультати:");
+  print("Мінімальне значення функції: $min");
+  print("Максимальне значення функції: $max");
+  print("Середнє арифметичне значення функції: $average");
+  print("Сума значень функції: $sum");
+}
+
+double calc(double x) {
+  return (x - 3) / (4 + x);
+}
