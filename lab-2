@@ -7,10 +7,6 @@ void main() {
   print("y = (x - 3) / (4 + x)\n");
 
   var x = valueFrom;
-  double sum = 0.0;
-  double min = double.infinity;
-  double max = double.negativeInfinity;
-  int count = 0;
 
   while (x < valueTo) {
     // пропускаємо точку, де знаменник дорівнює нулю
@@ -22,21 +18,11 @@ void main() {
 
     final y = calc(x);
     print("x = $x, y = $y");
-    sum += y;
-    if (y < min) min = y;
-    if (y > max) max = y;
     x += step;
-    count++;
   }
-
-  final average = sum / count;
-  print("\nРезультати:");
-  print("Мінімальне значення функції: $min");
-  print("Максимальне значення функції: $max");
-  print("Середнє арифметичне значення функції: $average");
-  print("Сума значень функції: $sum");
 }
 
 double calc(double x) {
   return (x - 3) / (4 + x);
 }
+
