@@ -7,22 +7,25 @@ void main() {
   print("y = (x - 3) / (4 + x)\n");
 
   var x = valueFrom;
+  double sum = 0.0;
 
   while (x < valueTo) {
     // пропускаємо точку, де знаменник дорівнює нулю
     if (x == -4.0) {
-      print("x = -4, y = -Infinity");
+      print("x = -4, (x - 3) / (4 + x) = -Infinity");
       x += step;
       continue;
     }
 
     final y = calc(x);
-    print("x = $x, y = $y");
+    print("x = $x, (x - 3) / (4 + x) = $y");
+    sum += y;
     x += step;
   }
+
+  print("\nСума значень функції: $sum");
 }
 
 double calc(double x) {
   return (x - 3) / (4 + x);
 }
-
