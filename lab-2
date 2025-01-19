@@ -1,3 +1,4 @@
+// варіант 6
 void main() {
   const valueFrom = -4.0;
   const valueTo = 5.0;
